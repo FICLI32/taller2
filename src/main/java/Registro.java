@@ -58,23 +58,29 @@ public class Registro {
             case 1:
                 System.out.println("Nombre:");
                 String nombre = scanner.nextLine();
-                System.out.println("estado civil");
+                System.out.println("Estado civil:");
                 String Estadocivil = scanner.nextLine();
-                System.out.println("edad");
+                System.out.println("Edad:");
                 String edad = scanner.nextLine();
                 agregarPersona(registro, nombre, Estadocivil, edad);
                 break;
             case 2:
-                mayoresDeEdad(registro);
+                int mayoresDeEdad = mayoresDeEdad(registro);
+                System.out.println("Hay " + mayoresDeEdad + " mayores de edad.");
                 break;
             case 3:
-                ....
+                int menoresDeEdad = menoresDeEdad(registro);
+                System.out.println("Hay " + menoresDeEdad + " menores de edad.");
                 break;
             case 4:
-                ....
+                int terceraEdad = terceraEdad(registro);
+                System.out.println("Hay " + terceraEdad + " personas de tercera edad");
                 break;
             case 5:
-                ....
+                int soteros = solteros(registro);
+                int casados = casados(registro);
+                System.out.println("Hay " + casados + " casados/as.");
+                System.out.println("Hay " + soteros + " solteros/as.");
                 break;
             case 6:
                 System.out.println("Saliendo del sistema.");
@@ -94,24 +100,22 @@ public class Registro {
 
     public static int validarCupo(String[][] registro) {
         for (int i = 0; i < registro.length; i++) {
-            if (registro[i][0].equals("")) {
+            if (registro[i][0] == null) {
                 return registro.length - i;
             }
         }
         return 0;
     }
 
-    public static String[][] agregarPersona(String[][] registro, String nombre, String estadoCivil, String edad) {
+    public static void agregarPersona (String[][] registro, String nombre, String estadoCivil, String edad) {
         if (hayCupo(registro)) {
             int indiceDisponible = obtenerUltimoEspacio(registro);
             registro[indiceDisponible][0] = nombre;
             registro[indiceDisponible][1] = estadoCivil;
             registro[indiceDisponible][2] = edad;
             System.out.println("Persona agregada.");
-            return registro;
         } else {
             System.out.println("No hay cupo.");
-            return registro;
         }
     }
 
@@ -154,36 +158,30 @@ public class Registro {
         return 0;
     }
 
-    public static int Solteros()
+    public static int solteros(String[][] registro) {
+        int solteros = 0;
 
-
-
-
-
-}
-
-
-            } else if (a == 5) {
-                int c = 0;
-                int d = 0;
-                for (double[] persona : registro) {
-                    if (persona[1].equals("casado/a")) {
-                        c++;
-                    } else if (persona[1].equals("soltero/a")) {
-                        d++;
-                    }
-                }
-
-
-                System.out.println("Hay " + d + " casados/as.");
-                System.out.println("Hay " + c + " solteros/as.");
-            } else if (a == 6) {
-                System.out.println("Programa finalizado");
+        for (String[] persona : registro) {
+            if (persona[1].equals("casado/a")) {
+                solteros++;
+                return solteros;
             }
-        } while (a == 6);
+        }
+        return 0;
     }
 
+    public static int casados(String[][] registro) {
+        int casados = 0;
+        for (String[] persona : registro) {
+            if (persona[1].equals("casado/a")) {
+                casados++;
+                return casados;
+            }
+        }
+        return 0;
+    }
 }
+
 
 
 
