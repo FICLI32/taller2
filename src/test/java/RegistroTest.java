@@ -4,9 +4,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RegistroTest {
 
+    private String[][] registros;
+
     @Test
     void agregarPersona() {
-        String[][] registros = new String[50][3];
+        registros = new String[][]{
+                {"pepe","casado","18"},
+                {"juan", "soltero", "17"},
+                {"maria","casada", "18"}
+        };
     }
 
     @Test
