@@ -1,3 +1,4 @@
+
 Integrante:
 Fidel Barriga
 
@@ -9,3 +10,4 @@ Errores:
 * el "Opa" no es un nombre descriptivo para el metodo.
 * La mayoria e las funciones principales no presnetan variables con nombres descriptivos
 * La validacion de la tercera edad por alguna razon pide el estado civil.
+
