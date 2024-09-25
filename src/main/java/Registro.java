@@ -162,7 +162,7 @@ public class Registro {
         int solteros = 0;
 
         for (String[] persona : registro) {
-            if (persona[1].equals("casado/a")) {
+            if (persona[1].equals("soltero") || persona[1].equals("soltera")) {
                 solteros++;
                 return solteros;
             }
@@ -173,13 +173,14 @@ public class Registro {
     public static int casados(String[][] registro) {
         int casados = 0;
         for (String[] persona : registro) {
-            if (persona[1].equals("casado/a")) {
+            if (persona[1].equals("casado")||persona[1].equals("casada")) {
                 casados++;
                 return casados;
             }
         }
         return 0;
     }
+
 }
 
 
