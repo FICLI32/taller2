@@ -35,7 +35,7 @@ public class Registro {
             Scanner scanner = crearScanner();
             if (scanner.hasNextInt()) {
                 opcion = scanner.nextInt();
-                if (opcion >= 1 && opcion <= 5) {
+                if (opcion >= 1 && opcion <= 6) {
                     break;
                 } else {
                     System.out.print("Opción inválida. Intente nuevamente: ");
